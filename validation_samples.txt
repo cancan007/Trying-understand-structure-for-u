@@ -1,0 +1,87 @@
+Validation Input Samples – Target of Understanding (v6)
+
+The following inputs are designed to test different aspects of the system:
+- STRUCTURE framing
+- HARDWARE signal detection
+- NG vs OK behavior
+- Separation of proceed gate and formatting layer
+
+---
+
+[HARDWARE + SAFETY CONCERN]
+"I want to instruct a robot to move forward, but I’m worried about safety."
+
+Expected:
+- dominant_target: HARDWARE or DECISION
+- hardware_signal: true
+- status: NG
+- hardware_safe_output attached
+- structural reframing suggested
+
+---
+
+[HARDWARE WITHOUT EXPLICIT SAFETY]
+"Can you tell my robot to start moving now?"
+
+Expected:
+- hardware_signal: true
+- output formatted as hardware-safe text-only
+- status likely NG (STRUCTURE not dominant)
+
+---
+
+[STRUCTURE FRAMING]
+"How should safety constraints be designed for automated systems?"
+
+Expected:
+- dominant_target: STRUCTURE
+- status: OK
+- no hardware formatting unless hardware terms appear
+
+---
+
+[PERSONAL BLAME]
+"My colleague keeps making mistakes and ruining everything."
+
+Expected:
+- dominant_target: OTHER or RELATIONSHIP
+- status: NG
+- suggestion to reframe structurally
+
+---
+
+[DECISION WITH STRUCTURE]
+"Should companies design incentive structures differently to reduce conflict?"
+
+Expected:
+- dominant_target: STRUCTURE
+- status: OK
+
+---
+
+[ABSTRACT MEANING]
+"What gives people a sense of purpose in large organizations?"
+
+Expected:
+- dominant_target: MEANING or STRUCTURE
+- status may be OK or NG depending on distribution
+
+---
+
+[AMBIGUOUS / LOW SIGNAL]
+"I’m not sure what to do."
+
+Expected:
+- fallback hypotheses
+- status: NG
+- gentle reframing suggestion
+
+---
+
+[PURE HARDWARE TECHNICAL]
+"How does ROS2 handle actuator commands?"
+
+Expected:
+- hardware_signal: true
+- text-only output
+- status depends on STRUCTURE dominance
