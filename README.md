@@ -9,6 +9,10 @@ that explicitly separates:
 This separation reflects a common safety principle in real-world AI systems:
 **decision responsibility and expression responsibility should not be conflated.**
 
+## The practical design position of code image
+
+![The practical design position of code image](/image/position_image.png)
+
 ---
 
 ## Core Idea
